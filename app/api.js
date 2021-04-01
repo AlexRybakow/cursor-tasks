@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ul = document.getElementById('swpersons');
   const url = 'https://swapi.dev/api/people/';
   
+  
   fetch(url)
   .then((resp) => resp.json())
   .then(function(data) {
@@ -43,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let li = createElement('li');
       let span = createElement('span');
       span.innerHTML = `${person.name} - ${person.birth_year} - ${person.gender}`;
+      li.style.marginBottom = '20px';
       append(li, span);
       append(ul, li);
     })
@@ -71,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let li = createElement('li');
       let span = createElement('span');
       span.innerHTML = `${planet.name}`;
+      li.style.marginBottom = '20px'
       append(li, span);
       append(ul, li);
     })
@@ -99,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let li = createElement('li');
         let span = createElement('span');
         span.innerHTML = `${film.title}`;
+        li.style.marginBottom = '20px'
         append(li, span);
         append(ul, li);
       })
