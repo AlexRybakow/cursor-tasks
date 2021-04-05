@@ -1,5 +1,5 @@
-function* createGenerator() {
-    for(i=1; i<Infinity; i++) {
+function* createGenerator(start = 1, finish = Infinity) {
+    for(i=start; i<finish; i++) {
         yield i
     }
 }
