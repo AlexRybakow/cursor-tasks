@@ -92,20 +92,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function helpWookie() {
   
     const ul = document.getElementById('films');
-    const url = 'https://swapi.dev/api/films/?format=wookiee';
+    const url = 'https://swapi.dev/api/films/2/?format=wookiee';
     
     fetch(url)
-    .then((resp) => resp.json())
-    .then(function(data) {
-      let woo = data.results;
-      return woo.map(function(film) {
-        let li = createElement('li');
-        let span = createElement('span');
-        span.innerHTML = `${film.title}`;
-        li.style.marginBottom = '20px'
-        append(li, span);
-        append(ul, li);
-      })
+    .then(response => response.text())
+    .then(data => {
+      const planets = JSON.parse(data.replaceAll('\\',''));
+      console.log(planets)
     })
     .catch(function(error) {
       console.log(error);
